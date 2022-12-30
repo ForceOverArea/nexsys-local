@@ -1,0 +1,16 @@
+{
+  "name": "nexsys-js",
+  "collaborators": [
+    "Grant Christiansen <christiansengrant18@gmail.com>"
+  ],
+  "version": "0.1.0",
+  "files": [
+    "nexsys_js_bg.wasm",
+    "nexsys_js.js",
+    "nexsys_js_bg.js",
+    "nexsys_js.d.ts"
+  ],
+  "module": "nexsys_js.js",
+  "types": "nexsys_js.d.ts",
+  "sideEffects": false
+}
