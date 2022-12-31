@@ -1,4 +1,5 @@
-import * as wasm from './nexsys_js_bg.wasm';
+//import * as wasm from './nexsys_js_bg.wasm';
+import * as wasm from "https://raw.githubusercontent.com/ForceOverArea/nexsys-local/main/pkg/nexsys_js_bg.wasm";
 
 let WASM_VECTOR_LEN = 0;
 
