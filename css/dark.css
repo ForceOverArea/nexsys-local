@@ -1,28 +1,31 @@
 body { 
     background-color: #002b36; 
-    color: #586e75; 
+    color: #93a1a1;
 }
 
 input[type="text"] {
-    color: #586e75;
+    color: #93a1a1;
 }
 
 .settings.solver {
-    border: 3px solid #586e75; 
+    border: 3px solid #93a1a1; 
     background-color: #073642;
 }
 
 .editor-window { 
-    border: 3px solid #586e75; 
+    border: 3px solid #93a1a1; 
     background-color: #073642; 
 }
 
 .soln-window {
-    border: 3px solid #586e75; 
+    border: 3px solid #93a1a1; 
     background-color: #073642;
 }
 
 .highlight-me:hover {
     filter: drop-shadow(0px 0px 20px white);
-    /* #9f9f9f); */
+}
+
+#cmd {
+    color: #93a1a1;
 }

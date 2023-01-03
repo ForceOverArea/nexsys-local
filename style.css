@@ -20,6 +20,10 @@ input[type="text"] {
     width: 5%;
 }
 
+.cushion.xsmall {
+    width: 1%;
+}
+
 .settings {
     position: absolute;
     left: 1%;
@@ -40,11 +44,13 @@ input[type="text"] {
     height: 7%;
     width: 98%;
 }
-.settings.editor { bottom: 5%; }
+.settings.editor { bottom: 1%; }
 
 .editor-window, .soln-window {
     position: absolute;
     top: 10%;
+
+    overflow: auto;
 
     font-size: 20px;
 
@@ -63,6 +69,8 @@ input[type="text"] {
     left: 63%;
 
     width: 36%;
+
+    cursor: pointer;
 }
 
 .cli {
@@ -81,7 +89,10 @@ i {
 #cmd {
     width: 50%;
     outline: none;
-    color: #93a1a1;
+}
+
+.highlight-me label, .highlight-me {
+    cursor: pointer;
 }
 
 .highlight-me, .editor-window, .soln-window, .settings.solver {
@@ -91,4 +102,8 @@ i {
 #nexsys-logo {
     height: 55px;
     width: 150px;
+}
+
+#nexsys-logo:hover {
+    filter: drop-shadow(0px 0px 20px rgb(0, 218, 7));
 }

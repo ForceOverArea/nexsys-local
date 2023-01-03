@@ -12,8 +12,9 @@
     <link id="theme-selector" rel="stylesheet" href="./css/dark.css">
     
     <div class="settings solver">
-        <img src="./img/nexsys_logo_full.png" alt="Nexsys Logo" id="nexsys-logo">    
-
+        <a href="https://github.com/ForceOverArea/nexsys-local" target="_blank">
+            <img src="./img/nexsys_logo_full.png" alt="Nexsys Logo" id="nexsys-logo">    
+        </a>
         <div class="cushion small"></div>
 
         <div class="highlight-me" id="tolerance-tile">
@@ -48,15 +49,16 @@
     
     <div class="soln-window" id="soln-window">
         <i id="cmd-history">
-            &nbsp;Welcome to Nexsys!
+            <br>&nbsp;Welcome to Nexsys!
             <br>&nbsp;Some basic commands to get you started: 
-            <br>&nbsp;
+            <br>
             <br>&nbsp;COMMAND  DESCRIPTION
-            <br>&nbsp;'help'&nbsp; displays this message or command info
+            <br>&nbsp;'help'&nbsp;   displays this message
             <br>&nbsp;'clear'  clears terminal output
             <br>&nbsp;'solve'  solves the system of equations in the editor
+            <br>&nbsp;'steps'  solves the system and shows work
             <br>&nbsp;'theme'  changes the theme between light and dark
-            <br>&nbsp;
+            <br>
         </i>
         <div class="cli" id="cli">
             <label for="cmd" class="cursor">&nbsp;[nexsys-cli]~>&nbsp;</label>
@@ -66,6 +68,7 @@
 
     <div class="settings editor">
         <button id="solve-btn">Solve!</button>
+        <div class="cushion xsmall"></div>
         <button id="theme-btn">Change Theme</button>
     </div>
 </body>
