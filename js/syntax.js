@@ -41,7 +41,7 @@ export const highlight = (text) => {
     // match tokens
     (function () {
         let tokens = text.match(
-            /\=|\<|\>|\+|\-|\*|\/|\[|\]|\{|\}/g
+            /\=|\<|\>|\+|\-|\*|\/|\[|\]|\{|\}|\^|\,/g
         );
 
         if (tokens != null) {
