@@ -1,0 +1,123 @@
+@import "./syntax.css";
+
+body {
+    font-family: monospace;
+}
+
+input[type="text"] {
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    font-family: monospace;
+    font-size: 20px;
+}
+
+.cushion {
+    height: 2%;
+    width: 10%;
+}
+
+.cushion.small {
+    width: 5%;
+}
+
+.cushion.xsmall {
+    width: 1%;
+}
+
+.settings {
+    position: absolute;
+    left: 1%;
+    
+    width: 90%;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.settings label, .settings input { height:50%; font-size: 15px;}
+
+.settings.solver { 
+    top: 1%;
+    align-items: center;
+    justify-content: left;
+
+    height: 7%;
+    width: 98%;
+}
+
+.settings.editor { bottom: 1%; }
+
+.settings.solver, .editor-window, .soln-window {
+    filter: drop-shadow(0px 0px 20px #00000088);
+}
+
+.editor-window, .soln-window {
+    position: absolute;
+    top: 10%;
+
+    overflow: auto;
+
+    font-size: 20px;
+
+    height: 84%;
+}
+
+.editor-window {
+    color: transparent;
+    border: 3px solid transparent;
+    cursor: auto;
+
+    white-space: pre;
+
+    width: 60%;
+
+    outline: none;
+
+    left: 1%;
+}
+
+.soln-window {
+    left: 63%;
+
+    width: 36%;
+
+    cursor: pointer;
+}
+
+.cli {
+    display: flex;
+    flex-direction: row;
+}
+
+i {
+    color: #859900;
+}
+
+.cursor {
+    color: #cb4b16;
+}
+
+#cmd {
+    width: 50%;
+    outline: none;
+}
+
+.highlight-me label, .highlight-me, #nexsys-logo {
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.highlight-me, .editor-window, .soln-window, .settings.solver {
+    border-radius: 15px;
+}
+
+#nexsys-logo {
+    height: 55px;
+    width: 150px;
+}
+
+#nexsys-logo:hover {
+    filter: drop-shadow(0px 0px 20px rgb(0, 218, 7));
+}

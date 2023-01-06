@@ -1,5 +1,5 @@
 use wasm_bindgen::prelude::*;
-use nexsys::solve;
+use nexsys::{solve, cleanup};
 
 macro_rules! struct2json {
     ( $i:expr, $( $ch:tt ),* ) => {{
@@ -17,10 +17,12 @@ pub fn solve_js(system: &str, tolerance: f64, max_iterations: usize, allow_nonco
         Err(e) => return format!("{}", e) // return early with the error statement
     };
 
-    struct2json!(
-        format!("<solution>{:?}</solution><log>{:?}</log>", soln, log),
-        "value", "domain"
-    )
+    // Lord forgive me...
+
+    let no_enums = cleanup!(format!("<solution>{:?}</solution><log>{:?}</log>", soln, log),"Some(", ")");
+    
+    struct2json!(no_enums, "value", "domain")
+    .replace("- (", "=")
     .replace("None", "null")
     .replace("Variable", "")
 }
