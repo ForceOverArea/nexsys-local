@@ -9,32 +9,26 @@
     <title>Nexsys</title>
 </head>
 <body>
-    <link id="theme-selector" rel="stylesheet" href="./css/dark.css">
-    
+    <link id="theme-selector" rel="stylesheet" href="./css/dark.css">  
     <div class="settings solver">
         <a href="https://github.com/ForceOverArea/nexsys-local" target="_blank">
             <img src="./img/nexsys_logo_full.png" alt="Nexsys Logo" id="nexsys-logo">    
         </a>
         <div class="cushion small"></div>
-
         <div class="highlight-me" id="tolerance-tile">
             <div class="cushion small">&nbsp;</div>
             <label for="tol">Tolerance: </label>
             <input type="text" name="tol" id="tolerance">
             <div class="cushion small">&nbsp;</div>
         </div>
-
         <div class="cushion"></div>
-
         <div class="highlight-me" id="max-iters-tile">
             <div class="cushion small">&nbsp;</div>
             <label for="max">Max No. of Iterations: </label>
             <input type="text" name="max" id="max-iters">    
             <div class="cushion small">&nbsp;</div>
         </div>
-        
         <div class="cushion"></div>
-
         <div class="highlight-me" id="allow-ncv-tile">
             <div class="cushion small">&nbsp;</div>
             <label for="anc">Allow non-convergence? </label>
@@ -42,16 +36,14 @@
             <div class="cushion small">&nbsp;</div>
         </div>
     </div>
-
-    
     <div class="editor-window format" id="editor-overlay">
         Loading Nexsys... Please Wait...
     </div>
-    <div class="editor-window" contenteditable="true" id="editor-window">
-    
+    <div class="editor-window" contenteditable="true" id="editor-window" 
+    data-gramm_editor="false" data-gramm="false" data-enable-grammarly="false"
+    spellcheck="false">
+        <!-- Your Code Here! -->
     </div>
-    
-
     <div class="soln-window" id="soln-window">
         <i id="cmd-history">
             <br>&nbsp;Welcome to Nexsys!
@@ -63,19 +55,23 @@
             <br>&nbsp;'solve'  solves the system of equations in the editor
             <br>&nbsp;'steps'  solves the system and shows work
             <br>&nbsp;'theme'  changes the theme between light and dark
+            <br>&nbsp;'save'&nbsp;  downloads the current code as a text file
+            <br>&nbsp;'open'&nbsp;  allows you to open a file in the editor
             <br>&nbsp;'reset-to-demo' changes the code in the editor to a demo
-            <br>
         </i>
         <div class="cli" id="cli">
             <label for="cmd" class="cursor">&nbsp;[nexsys-cli]~>&nbsp;</label>
             <input type="text" name="cmd" id="cmd">
         </div>
     </div>
-
     <div class="settings editor">
         <button id="solve-btn">Solve!</button>
         <div class="cushion xsmall"></div>
         <button id="theme-btn">Change Theme</button>
+        <div class="cushion xsmall"></div>
+        <button id="save-btn">Save Code</button>
+        <div class="cushion xsmall"></div>
+        <input type="file" name="File Select" id="file-select">
     </div>
 </body>
 <script src="./js/main.js" type="module"></script>

@@ -1,3 +1,4 @@
+import { download, load_file } from "./files.js";
 import init, { solve_js } from "./nexsys_js.js";
 import { highlight } from "./syntax.js";
 
@@ -20,7 +21,9 @@ const UI = {
     theme_btn:          document.querySelector(`#theme-btn`),
     cli:                document.querySelector(`#cli`),
     cmd:                document.querySelector(`#cmd`),
-    cmd_history:        document.querySelector(`#cmd-history`)
+    cmd_history:        document.querySelector(`#cmd-history`),
+    fs_button:          document.querySelector(`#file-select`),
+    dl_button:          document.querySelector(`#save-btn`)
 }
 
 init().then(() => {
@@ -143,6 +146,16 @@ const format_nexsys_soln = (include_log=false) => {
     }
 }
 
+const save_nexsys_code = () => {
+    let [file] = UI.fs_button.files;
+
+    if (file) {
+        download(file.name, UI.nxs_editor.innerText);
+    } else {
+        download(`system_of_equations.nxs`, UI.nxs_editor.innerText);
+    }
+}
+
 UI.theme_btn.onclick = change_theme;
 UI.solve_btn.onclick = format_nexsys_soln;
 
@@ -213,6 +226,14 @@ UI.cmd.onkeydown = (event) => {
 
         change_theme();
     
+    } else if (command === `save`) {
+        
+        save_nexsys_code();
+    
+    } else if (command === `open`) {
+        
+        UI.fs_button.click();
+
     } else if (command === `help`) {
 
         UI.cmd_history.innerHTML += 
@@ -225,8 +246,10 @@ UI.cmd.onkeydown = (event) => {
         <br>&nbsp;'solve'  solves the system of equations in the editor
         <br>&nbsp;'steps'  solves the system and shows work
         <br>&nbsp;'theme'  changes the theme between light and dark
+        <br>&nbsp;'save'&nbsp;  downloads the current code as a text file
+        <br>&nbsp;'open'&nbsp;  allows you to open a file in the editor
         <br>&nbsp;'reset-to-demo' changes the code in the editor to a demo`;
-
+    
     } else if (command === `reset-to-demo`) {
         const demo_text = 
 `keep c on [-10, 0]
@@ -237,7 +260,7 @@ i + j = b
 i - j = a
 c^2 = (i + j)`;
         UI.nxs_editor.innerText = demo_text;
-        UI.nxs_format.innerHTML = highlight(UI.nxs_editor.innerText);
+        UI.nxs_format.innerHTML = highlight(UI.nxs_editor.innerText, true);
 
     } else if (command === ``) {
     } else {
@@ -248,4 +271,14 @@ c^2 = (i + j)`;
 
 UI.nxs_editor.onkeyup = UI.nxs_editor.onkeydown = () => {
     UI.nxs_format.innerHTML = highlight(UI.nxs_editor.innerText);
+}
+
+UI.fs_button.onchange = () => {
+    load_file(UI.fs_button, UI.nxs_editor, () => {
+        UI.nxs_format.innerHTML = highlight(UI.nxs_editor.innerText);
+    });
+}
+
+UI.dl_button.onclick = () => {
+    save_nexsys_code();
 }

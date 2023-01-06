@@ -35,13 +35,14 @@ export const clean_code = (code, scrub_tags=true) => {
 
 /**
  * @param {string} text the text (**NOT** html) inside of the target tag
+ * @return {string} the html that includes styled, syntax-highlighting tags 
  */
-export const highlight = (text) => {
+export const highlight = (text, en_masse=false) => {
 
     // match tokens
     (function () {
         let tokens = text.match(
-            /\=|\<|\>|\+|\-|\*|\/|\[|\]|\{|\}|\^|\,/g
+            /\=|\<|\>|\+|\-|\*|\/|\(|\)|\[|\]|\{|\}|\^|\,/g
         );
 
         if (tokens != null) {
@@ -80,9 +81,21 @@ export const highlight = (text) => {
     
     // correct newline issues
     (function () {
-    //     console.log(`Raw: ${text}`);
-        text = text.replace(/\n\n/g,`<br>`);
-    //     console.log(`Corrected: ${text}`);
+        /** @type {string[]} */
+        let lines = text.split(`\n\n`);
+
+        console.log(JSON.stringify(lines));
+
+        for (let i=0; i++; lines.length) {
+            if (lines[i] === ``) {
+                lines.splice(i, 1);
+                lines[i] = `<div><br></div>`;
+            } else {
+                lines[i] = `<div>${lines[i]}</div>`;
+            }
+        }
+
+        text = lines.join(`\n`);
     })();
 
     return text;
