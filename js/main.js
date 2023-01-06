@@ -239,7 +239,7 @@ c^2 = (i + j)`;
         UI.nxs_editor.innerText = demo_text;
         UI.nxs_format.innerHTML = highlight(UI.nxs_editor.innerText);
 
-    } else if (command = ``) {
+    } else if (command === ``) {
     } else {
         cmd_hist.shift();
         UI.cmd_history.innerHTML += `<br>&nbsp;found unknown command '${command}'. <br>&nbsp;Type 'help' for a list of commands.`;
