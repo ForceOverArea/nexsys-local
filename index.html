@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="./img/nexsys.png" type="image/png">
     <title>Nexsys</title>
 </head>
@@ -43,10 +43,15 @@
         </div>
     </div>
 
-    <div class="editor-window" contenteditable="true" id="editor-window">
+    
+    <div class="editor-window format" id="editor-overlay">
         Loading Nexsys... Please Wait...
     </div>
+    <div class="editor-window" contenteditable="true" id="editor-window">
     
+    </div>
+    
+
     <div class="soln-window" id="soln-window">
         <i id="cmd-history">
             <br>&nbsp;Welcome to Nexsys!
@@ -58,6 +63,7 @@
             <br>&nbsp;'solve'  solves the system of equations in the editor
             <br>&nbsp;'steps'  solves the system and shows work
             <br>&nbsp;'theme'  changes the theme between light and dark
+            <br>&nbsp;'reset-to-demo' changes the code in the editor to a demo
             <br>
         </i>
         <div class="cli" id="cli">
@@ -72,5 +78,5 @@
         <button id="theme-btn">Change Theme</button>
     </div>
 </body>
-<script src="./main.js" type="module"></script>
+<script src="./js/main.js" type="module"></script>
 </html>

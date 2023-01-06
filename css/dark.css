@@ -12,8 +12,13 @@ input[type="text"] {
     background-color: #073642;
 }
 
-.editor-window { 
+.editor-window {
+    caret-color: #586e75;
+}
+
+.editor-window.format { 
     border: 3px solid #93a1a1; 
+    color: #93a1a1;
     background-color: #073642; 
 }
 
